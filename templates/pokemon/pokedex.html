@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} {{name.capitalize().capitalize()}} Pokedex {% endblock %}
+
+{% block content %}
+<h1>{{name.capitalize()}} Pokedex</h1>
+
+<ul>
+    {% for p in pokemon%}
+    <li>
+        {{name.capitalize()}} Pokedex Id: {{p['entry_number']}} - 
+        <a href="/pokemon/{{p['pokemon_species']['name']}}/detail">Name: {{p['pokemon_species']['name']}}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

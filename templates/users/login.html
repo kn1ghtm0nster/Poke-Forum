@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+<section class="vh-100">
+    <div class="container py-5 h-75">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-8 col-lg-6 col-xl-6">
+                <div class="card shadow" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="display-4 text-dark">Welcome Back!</h3>
+
+                        <form method="POST">
+                            {{form.hidden_tag()}}
+
+                            {% for field in form if field.widget.input_type != 'hidden' %}
+                            {% for error in field.errors %}
+                            <span class="text-danger">{{error}}</span>
+                            {% endfor %}
+                            {{field(placeholder=field.label.text, class="form-control my-3")}}
+                            {% endfor %}
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg">Log in</button>
+                            </div>
+                            <div class="form-text my-2">
+                                New trainer? Register <a href="/signup">here!</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

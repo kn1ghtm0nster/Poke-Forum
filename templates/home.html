@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+
+<section class="vh-100">
+    <div class="container py-5 h-75">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-10 col-lg-6 col-xl-6">
+                <div class="card shadow " style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h1 class="display-3 text-center poke-font text-danger fw-normal">Poke-Forum</h1>
+
+                        <p class="fs-4 my-3 text-center text-danger">A place for all pokemon trainers and lovers to
+                            explore together!
+                        </p>
+
+                        <a href="/pokedex-generations" class="btn btn-lg btn-primary mx-auto">Enter Site!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <div class="container-fluid my-auto">
+            <p class="lead">Copyright &copy; 2022 Poke-Forum</p>
+        </div>
+    </nav>
+</footer>
+
+{% endblock %}

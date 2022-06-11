@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile Details {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-9 col-sm-12 col-xs-12 mx-auto">
+        <div class="card my-3" style="max-width:65rem;">
+            <div class="row g-0">
+                <div class="col-md-4 d-none d-md-block">
+                    <img src="{{user.image_url}}" class="img-fluid rounded-start" alt="Image for {{user.username}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="card-title">Trainer: {{user.username}}</h2>
+                        <p class="card-text">
+                            {% if g.user.id == user.id %}
+                        <form action="/users/delete" method="POST">
+                            <a href="/users/edit" class="btn btn-success btn-lg">Edit Profile</a>
+                            <button class="btn btn-outline-danger btn-lg" id="delete-profile">Delete Profile</button>
+                        </form>
+                        {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-sm-12 col-xs-12 mx-auto">
+        {% if g.user and user.comments%}
+
+        <div class="card my-3">
+            <h3 class="card-header fs-2">User Comments: </h3>
+            <div class="card-body">
+                {% for comment in user.comments%}
+                <div class="card my-2">
+                    <div class="card-header text-primary">
+                        Pokemon Name: {{comment.pokemon.pokemon_name.capitalize()}}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{comment.text}} <br> <small class="text-muted">Posted:
+                                {{comment.timestamp.strftime('%B %d
+                                %Y')}}</small>
+                        </p>
+                        {% if comment.user_id == g.user.id %}
+                        <form action="/comments/{{comment.id}}/delete" method="POST" class="my-2">
+                            <a href="/comments/{{comment.id}}/edit" class="btn btn-success">Edit</a>
+                            <button class="btn btn-outline-danger">Delete</button>
+                        </form>
+                        {% endif %}
+                        <a href="/pokemon/{{comment.pokemon.pokemon_name}}/detail" class="btn btn-primary">View
+                            {{comment.pokemon.pokemon_name.capitalize()}}'s Page!</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% elif g.user and not user.comments%}
+        <div class="card my-3">
+            <h2 class="text-center card-header">User has no comments.</h2>
+        </div>
+
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Edit Comment{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12 col-xs-12 mx-auto">
+        <section class="vh-100">
+            <div class="container py-5 h-75">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-7">
+                        <div class="card shadow" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
+                                <h3 class="display-3 text-dark">Edit Comment</h3>
+                                <form method="POST">
+                                    {{form.hidden_tag()}}
+
+                                    {% for field in form if field.widget.input_type != 'hidden' %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{error}}</span>
+                                    {% endfor %}
+                                    {{field(placeholder=field.label.text, class="form-control my-2")}}
+                                    {% endfor %}
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-success">Update Comment</button>
+                                        <a href="/users/{{user.id}}" class="btn btn-outline-danger">Cancel</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

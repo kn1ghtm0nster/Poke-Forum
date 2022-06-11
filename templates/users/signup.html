@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+
+
+<section class="vh-100">
+    <div class="container py-5 h-75">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-6 col-xl-5">
+                <div class="card shadow" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <h1 class="display-1 text-center  card-title text-dark">Sign Up</h1>
+
+                        <form method="POST">
+                            {{form.hidden_tag()}}
+
+                            {% for field in form if field.widget.input_type != 'hidden' %}
+                            {% for error in field.errors %}
+                            <span class="text-danger">{{error}}</span>
+                            {% endfor %}
+                            {{field(placeholder=field.label.text, class="form-control my-3")}}
+                            {% endfor %}
+                            <div class="d-grid">
+                                <button class="btn btn-primary">Sign me up!</button>
+                            </div>
+                            <div class="form-text my-2">
+                                Already a user? Click <a href="/login">here</a> to log in!
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

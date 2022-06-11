@@ -1,0 +1,22 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+body{
+    background: url('/static/images/143432-nature-Pokemon.jpg');
+    background-size: cover;
+}
+
+li{
+    list-style-type: none;
+}
+
+#social-link:hover{
+    color: orange !important;
+}
+
+.poke-font{
+    font-family: 'Inconsolata', monospace;
+} 

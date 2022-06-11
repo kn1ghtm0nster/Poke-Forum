@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %} About {% endblock %}
+
+{% block content %}
+
+<section id="project-info" class="my-3">
+    <h3 class="display-5 poke-font fw-normal text-white">About This Project</h3>
+
+    <p>This project was and is one of my bootcamp's major Capstone projects which uses the <code
+            class="text-danger"><a href="https://pokeapi.co/ " target="_blank" class="link-danger text-decoration-none">pokeapi</a></code>.
+        Massive shoutout to those group of people who made a free source for pokemon fans to get large amounts of game
+        data in a few simple lines of code! The main purpose of this project is to have a place where fans of the
+        pokemon games can come and discuss their findings along with sharing tips with other users in this site. I know
+        it's pretty bare at the moment but trust me I have a few things coming down the pipeline that I have listed
+        above in the patch notes section so feel free to poke around and let me know if there are any other features I
+        should be working on including or that you would like to see. Remember, I am limited to the information from the
+        PokeAPI BUT that doesn't mean I can't find ways around this! Feedback on the overall layout is always welcome as
+        well but above all else, I hope you enjoy using this site as much as I enjoyed making it.
+        <br>
+        -DQ
+    </p>
+
+    <p>This Project mainly works with <code class="text-danger">Flask</code> and <code
+            class="text-danger">Flask-SQLAlchemy</code> however, it also includes a
+        bit of <code class="text-danger">Bootstrap</code>, and <code class="text-danger">Javascript</code> for styling
+        and DOM manipulation. The backend
+        database is being run with <code class="text-danger">SQL</code> and <code class="text-danger">PostgreSQL</code>
+        along with <code class="text-danger">Python</code>!</p>
+</section>
+
+<section id="about-me" class="my-3">
+    <h3 class="display-5 poke-font fw-normal text-white">About The Developer</h3>
+
+    <p>Hi there! I am Diego and I built this website for pokemon fans to discuss tips, tricks, and other pokemon related
+        things on their favorite pokemon based on the games and generations that are available! None of this would have
+        been possible without the great folks over at PokeAPI so if you have a spare minute or want to learn more about
+        the API that this website is primarily using, feel free to click <a href="https://pokeapi.co/" target="_blank"
+            class="text-decoration-none text-danger">here!</a></p>
+
+    <p>As a bit of a side note, I am a Software Engineering student attending Springboard's Software Engineering
+        bootcamp with a graduation date of September 2022. The overall Github project files are available in my Github
+        profile page below BUT if you are a recruiter and or fellow dev who doesn't want to scroll down (don't worry, I
+        don't blame you), then you can click <a href="https://github.com/kn1ghtm0nster"
+            class="text-decoration-none text-danger">here!</a></p>
+
+</section>
+
+<section id="social-links" class="my-3">
+    <h3 class="display-5 poke-font fw-normal text-white">Social Links</h3>
+
+    <p class="my-3">
+        <span><a href="https://github.com/kn1ghtm0nster" class="text-decoration-none" target="_blank"><i
+                    class="bi bi-github text-danger fs-2 mx-2" id="social-link"></i></a></span>
+        <span><a href="https://www.instagram.com/mrquintanillaforreal/" class="text-decoration-none" target="_blank"><i
+                    class="bi bi-instagram text-danger fs-2 mx-2" id="social-link"></i></a></span>
+        <span><a href="https://www.linkedin.com/in/diegoquintanilla/" class="text-decoration-none" target="_blank"><i
+                    class="bi bi-linkedin text-danger fs-2 mx-2" id="social-link"></i></a></span>
+    </p>
+</section>
+
+
+
+{% endblock %}

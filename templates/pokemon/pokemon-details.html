@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %} {{name.capitalize()}} Details {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-9 col-sm-12 col-xs-12 mx-auto">
+        <div class="card my-3 mx-auto">
+            <div class="row g-0">
+                <div class="col-md-2 d-none d-lg-block">
+                    <img src="{{front_img}}" class="img-fluid border-bottom-0 bg-light bg-gradient" alt="default-image"
+                        style="height: 12rem;" data-bs-toggle="tooltip" data-bs-placement="left" title="Normal">
+                    <br>
+                    <img src="{{shiny_img}}" class="img-fluid border-start-0 bg-light bg-gradient" alt="shiny-image"
+                        style="height: 12rem;" data-bs-toggle="tooltip" data-bs-placement="left" title="Shiny">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <h3 class="card-title">Pokemon Name: {{name.capitalize()}}</h3>
+
+                        <h5 class="card-text my-4">Base Stats:</h5>
+                        <p class="card-text my-4">
+                            {% if base_xp%}
+                            <span class="card-text my-4 mx-auto"><span class="badge bg-primary">BASE EXP</span> :
+                                {{base_xp}}</span>
+                            {% endif %}
+
+                            {% if stats %}
+                            {% for stat in stats %}
+                            <span class="card-text my-4 mx-auto"><span
+                                    class="badge bg-primary">{{stat['stat']['name'].upper()}}</span>
+                                :
+                                {{stat['base_stat']}}</span>
+                            {% endfor %}
+                            {% else %}
+                        <p class="card-text text-warning">Information Unavailable</p>
+                        {% endif %}
+                        </p>
+                        <h5 class="card-text my-4">Types:</h5>
+                        {% if types %}
+                        {% for type in types %}
+                        <span class="card-text mx-auto badge bg-primary">{{type['type']['name'].capitalize()}}</span>
+                        {% endfor %}
+                        {% else %}
+                        <p class="card-text text-warning">Information Unavailable</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-sm-12 col-xs-12 mx-auto">
+        <div class="accordion my-3" id="pokemonDetailAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header collapsed" id="abilitiesHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseAbilities" aria-expanded="false" aria-controls="collapseAbilities">
+                        Abilities
+                    </button>
+                </h2>
+                <div id="collapseAbilities" class="accordion-collapse collapse" aria-labelledby="abilitiesHeading"
+                    data-bs-parent="#pokemonDetailAccordion">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            {% if abilities %}
+                            {% for ability in abilities %}
+                            <li class="list-group-item">{{ability['ability']['name'].capitalize()}}</li>
+                            {% endfor %}
+                            {% else %}
+                            <p class="text-warning">No Information Available</p>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header collapsed" id="movesHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseMoves" aria-expanded="false" aria-controls="collapseMoves">
+                        Pokemon Moves
+                    </button>
+                </h2>
+                <div id="collapseMoves" class="accordion-collapse collapse" aria-labelledby="movesHeading"
+                    data-bs-parent="#pokemonDetailAccordion">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            {% if moves %}
+                            {% for move in moves %}
+                            <li class="list-group-item">
+                                {{move['move']['name'].capitalize()}}
+                            </li>
+                            {% endfor %}
+                            {% else %}
+                            <p class="text-warning">No Information Available</p>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if not comments %}
+<div class="row">
+    <div class="col-md-10 col-sm-12 col-xs-12 mx-auto">
+        <div class="card my-3">
+            <h3 class="text-warning card-header">No Comments Added Yet.</h3>
+            {% if g.user %}
+            <div class="m-2">
+                <a href="/pokemon/{{name}}/add-comment" class="btn btn-primary">Add New Comment</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+<div class="row">
+    <div class="col-md-10 col-sm-12 col-xs-12 mx-auto">
+        <div class="card my-3">
+            <h3 class="card-header fs-2">Comments: </h3>
+            <div class="card-body">
+                {% for comment in comments %}
+                <div class="card my-3">
+                    <div class="card-body">
+                        <p class="card-text">{{comment.text}}</p>
+                        <h6 class="card-subtitle mb-2 text-muted">Posted by: <a href="/users/{{comment.user_id}}"
+                                class="text-dark">{{comment.user.username}}</a></h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{comment.timestamp.strftime('%B %d %Y')}}</h6>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% if g.user %}
+            <div class="m-2">
+                <a href="/pokemon/{{name}}/add-comment" class="btn btn-primary">Add New Comment</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}

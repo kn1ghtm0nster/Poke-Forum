@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block title %} Pokemon Generations {% endblock %}
+
+{% block content %}
+
+<section class="vh-100">
+    <div class="container py-5 h-75">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <h1 class="display-2 text-center poke-font text-danger fw-normal">Pokemon Generations</h1>
+            <div class="accordion mt-5" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingKanto">
+                        <button class="accordion-button collapsed text-danger fs-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseKanto" aria-expanded="false"
+                            aria-controls="collapseKanto" id="kanto-accordion">
+                            Gen I - Kanto
+                        </button>
+                    </h2>
+                    <div id="collapseKanto" class="accordion-collapse collapse" aria-labelledby="headingKanto"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-flush pokemon-list">
+                                {% for pokemon in kanto %}
+                                <a class="list-group-item list-group-item-action"
+                                    href="/pokemon/{{pokemon.pokemon_name}}/detail"><span class="pokemon"
+                                        id="{{pokemon.id}}">
+                                        ID: {{pokemon.id}}</span> - {{pokemon.pokemon_name.capitalize()}}</a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingJohto">
+                        <button class="accordion-button collapsed text-danger fs-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseJohto" aria-expanded="false"
+                            aria-controls="collapseJohto" id="johto-accordion">
+                            Gen II - Johto
+                        </button>
+                    </h2>
+                    <div id="collapseJohto" class="accordion-collapse collapse" aria-labelledby="headingJohto"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-flush">
+                                {% for pokemon in johto %}
+                                <img src="" alt="{{pokemon.pokemon_name}}-image" hidden id="pokemon-image">
+                                <a class="list-group-item list-group-item-action"
+                                    href="/pokemon/{{pokemon.pokemon_name}}/detail"><span class="pokemon"
+                                        id="{{pokemon.id}}">
+                                        ID: {{pokemon.id}}</span> - {{pokemon.pokemon_name.capitalize()}}</a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingHoenn">
+                        <button class="accordion-button collapsed text-danger fs-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseHoenn" aria-expanded="false"
+                            aria-controls="collapseHoenn" id="hoenn-accordion">
+                            Gen III - Hoenn
+                        </button>
+                    </h2>
+                    <div id="collapseHoenn" class="accordion-collapse collapse" aria-labelledby="headingHoenn"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-flush">
+                                {% for pokemon in hoenn %}
+                                <img src="" alt="{{pokemon.pokemon_name}}-image" hidden id="pokemon-image">
+                                <a class="list-group-item list-group-item-action"
+                                    href="/pokemon/{{pokemon.pokemon_name}}/detail"><span class="pokemon"
+                                        id="{{pokemon.id}}">
+                                        ID: {{pokemon.id}}</span> - {{pokemon.pokemon_name.capitalize()}}</a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSinnoh">
+                        <button class="accordion-button collapsed text-danger fs-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseSinnoh" aria-expanded="false"
+                            aria-controls="collapseSinnoh" id="sinnoh-accordion">
+                            Gen IV - Sinnoh
+                        </button>
+                    </h2>
+                    <div id="collapseSinnoh" class="accordion-collapse collapse" aria-labelledby="headingSinnoh"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-flush">
+                                {% for pokemon in sinnoh %}
+                                <img src="" alt="{{pokemon.pokemon_name}}-image" hidden id="pokemon-image">
+                                <a class="list-group-item list-group-item-action"
+                                    href="/pokemon/{{pokemon.pokemon_name}}/detail"><span class="pokemon"
+                                        id="{{pokemon.id}}">
+                                        ID: {{pokemon.id}}</span> - {{pokemon.pokemon_name.capitalize()}}</a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingUnova">
+                        <button class="accordion-button collapsed text-danger fs-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseUnova" aria-expanded="false"
+                            aria-controls="collapseUnova" id="unova-accordion">
+                            Gen V - Unova
+                        </button>
+                    </h2>
+                    <div id="collapseUnova" class="accordion-collapse collapse" aria-labelledby="headingUnova"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-flush">
+                                {% for pokemon in unova %}
+                                <img src="" alt="{{pokemon.pokemon_name}}-image" hidden id="pokemon-image">
+                                <a class="list-group-item list-group-item-action"
+                                    href="/pokemon/{{pokemon.pokemon_name}}/detail"><span class="pokemon"
+                                        id="{{pokemon.id}}">
+                                        ID: {{pokemon.id}}</span> - {{pokemon.pokemon_name.capitalize()}}</a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingKalos">
+                        <button class="accordion-button collapsed text-danger fs-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseKalos" aria-expanded="false"
+                            aria-controls="collapseKalos" id="kalos-accordion">
+                            Gen VI - Kalos
+                        </button>
+                    </h2>
+                    <div id="collapseKalos" class="accordion-collapse collapse" aria-labelledby="headingKalos"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-flush">
+                                {% for pokemon in kalos %}
+                                <img src="" alt="{{pokemon.pokemon_name}}-image" hidden id="pokemon-image">
+                                <a class="list-group-item list-group-item-action"
+                                    href="/pokemon/{{pokemon.pokemon_name}}/detail"><span class="pokemon"
+                                        id="{{pokemon.id}}">
+                                        ID: {{pokemon.id}}</span> - {{pokemon.pokemon_name.capitalize()}}</a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingAlola">
+                        <button class="accordion-button collapsed text-danger fs-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseAlola" aria-expanded="false"
+                            aria-controls="collapseAlola" id="alola-accordion">
+                            Gen VII - Alola
+                        </button>
+                    </h2>
+                    <div id="collapseAlola" class="accordion-collapse collapse" aria-labelledby="headingAlola"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-flush">
+                                {% for pokemon in alola %}
+                                <img src="" alt="{{pokemon.pokemon_name}}-image" hidden id="pokemon-image">
+                                <a class="list-group-item list-group-item-action"
+                                    href="/pokemon/{{pokemon.pokemon_name}}/detail"><span class="pokemon"
+                                        id="{{pokemon.id}}">
+                                        ID: {{pokemon.id}}</span> - {{pokemon.pokemon_name.capitalize()}}</a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingGalar">
+                        <button class="accordion-button collapsed text-danger fs-3" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseGalar" aria-expanded="false"
+                            aria-controls="collapseGalar" id="galar-accordion">
+                            Gen VIII - Galar
+                        </button>
+                    </h2>
+                    <div id="collapseGalar" class="accordion-collapse collapse" aria-labelledby="headingGalar"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul class="list-group list-group-flush">
+                                {% for pokemon in galar %}
+                                <img src="" alt="{{pokemon.pokemon_name}}-image" hidden id="pokemon-image">
+                                <a class="list-group-item list-group-item-action"
+                                    href="/pokemon/{{pokemon.pokemon_name}}/detail"><span class="pokemon"
+                                        id="{{pokemon.id}}">
+                                        ID: {{pokemon.id}}</span> - {{pokemon.pokemon_name.capitalize()}}</a>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
