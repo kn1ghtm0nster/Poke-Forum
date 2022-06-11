@@ -6,7 +6,7 @@ This tool uses the [PokeAPI](https://pokeapi.co/) to primarily display informati
 __NOTE:__ If you want to view the application before reading all the tech babble, then feel free to click on the link below!
 
 
-* Live Application Link: [Poke-Forum](https://testing-pokeapi.herokuapp.com/https://www.google.com)
+* Live Application Link: [Poke-Forum](https://poke-forum.herokuapp.com/)
 
 ## Overview:
 
@@ -102,7 +102,7 @@ Current features of the website are as follows:
 
 ## Upcoming Features:
 
-* V-2.2 (Date: TBD)
+* V-2.2 (Date: EST Aug 2022)
     * Password Reset for User Accounts.
     * New section for Release Notes.
 
